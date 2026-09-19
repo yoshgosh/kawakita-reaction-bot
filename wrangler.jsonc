@@ -1,0 +1,17 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "kawakita-reaction-bot",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-09-19",
+  "workers_dev": true,
+  "vars": {
+    "REACTION_CONFIG": "{\"instruction\":\"Slackメッセージに対して、最も自然なリアクションを1つ選んでください。\\n\\n- **まーごめ**：謝罪・ミス・やらかし・気まずさ\\n- **ｷﾋﾞｼｲ**：困難・問題・驚き・つらい状況\\n- **ﾓﾁﾛﾝ**：肯定・同意・了承・前向きな返答\\n\\n単語ではなく、メッセージ全体の意味で判断してください。\",\"options\":[{\"id\":\"maagome\",\"slackEmoji\":\"maagome_kawakita\",\"description\":\"謝罪・ミス・やらかし・気まずさ\"},{\"id\":\"kibishii\",\"slackEmoji\":\"kibishii_kawakita\",\"description\":\"困難・問題・驚き・つらい状況\"},{\"id\":\"mochiron\",\"slackEmoji\":\"mochiron_kawakita\",\"description\":\"肯定・同意・了承・前向きな返答\"}]}"
+  },
+  "secrets": {
+    "required": [
+      "SLACK_BOT_TOKEN",
+      "SLACK_SIGNING_SECRET",
+      "TYPESAFE_API_KEY"
+    ]
+  }
+}

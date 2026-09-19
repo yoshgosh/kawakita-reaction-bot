@@ -1,0 +1,34 @@
+{
+  "_metadata": {
+    "major_version": 1,
+    "minor_version": 1
+  },
+  "display_information": {
+    "name": "kawakita-reaction-bot",
+    "description": "投稿本文をTypeSafe AIへ送り、自然なリアクションを付けます。",
+    "background_color": "#654EA3",
+    "long_description": "Botが参加している公開チャンネル、非公開チャンネル、Botとの1対1 DM、Botを含む複数人DMに投稿された、人間による通常メッセージを対象にします。投稿全体の意味に合うリアクションを選ぶため、投稿本文を外部サービスのTypeSafe AIへ送信します。スレッド返信、編集、削除、ファイル共有、Bot投稿などは処理しません。利用者は、Botを会話へ追加すると、その会話の対象投稿本文がTypeSafe AIへ送信されることを理解したうえで利用してください。Workerは投稿本文を永続保存せず、ログにも出力しません。"
+  },
+  "features": {
+    "bot_user": {
+      "display_name": "Kawakita Reaction Bot",
+      "always_online": false
+    }
+  },
+  "oauth_config": {
+    "scopes": {
+      "bot": [
+        "channels:history",
+        "groups:history",
+        "im:history",
+        "mpim:history",
+        "reactions:write"
+      ]
+    }
+  },
+  "settings": {
+    "org_deploy_enabled": false,
+    "socket_mode_enabled": false,
+    "token_rotation_enabled": false
+  }
+}
