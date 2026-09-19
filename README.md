@@ -2,6 +2,8 @@
 
 Slackの人間による通常投稿をJevで判定し、候補からリアクションを1つ選んで付与するCloudflare Workerです。
 
+![Slackでリアクションを付与した表示例](docs/images/slack-reaction-example.png)
+
 ## 動作
 
 - Slack Events APIのHTTP Request URLでイベントを受信します。
@@ -12,12 +14,6 @@ Slackの人間による通常投稿をJevで判定し、候補からリアクシ
 - SlackへのACK後、`ctx.waitUntil()` でJev判定とリアクション付与を実行します。
 - Slack再送ヘッダーがあるイベントはACKだけ返して処理しません。
 - メッセージ本文はJevの判定のためTypeSafe AIへ送られます。Workerは本文を永続保存せず、ログにも出力しません。
-
-### 動作例
-
-`docs/images/slack-reaction-example.png` にスクリーンショットを配置してください。
-
-![Slackでリアクションを付与した表示例](docs/images/slack-reaction-example.png)
 
 Slack Appの説明にもTypeSafe AIへ投稿本文を送信することを記載しています。WorkerからTypeSafeへ送るのは本文だけで、ユーザーID、チャンネルID、ワークスペース情報は含めません。機密性の高い会話にはBotを追加しないでください。TypeSafe AIの一般向けポリシーでは、入力をモデル学習には使わない一方で、サービス提供に必要な期間保持する可能性があり、サービスは米国でホストされます。ゼロデータ保持を前提とした利用ではありません。
 
